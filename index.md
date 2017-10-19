@@ -1,10 +1,8 @@
 ---
 layout: home
 ---
-# About Theme
+# About Me
 
-This theme is Jekyll port of [vangeltzo.com](http://vangeltzo.com/) (by [Vangelis Tzortzis](https://github.com/srekoble)).
-
-To learn how to install and use this theme check out the [installation guide](http://taylantatli.me/Halve/halve-theme/) for more information.
-
-If you have a question, find a bug, or just want to say hi, please open an [issue on GitHub](https://github.com/TaylanTatli/Halve/issues/new).
+I'm a programmer who's born in Damascus, Syria at 2001-7-17 (16 years old) and works on projects that uses Lua and LÖVE framework. 
+I have been using both Lua and LÖVE for 4 years, and currently working on a neat fantasy computer called LIKO-12. 
+Besure to check my twitter !
