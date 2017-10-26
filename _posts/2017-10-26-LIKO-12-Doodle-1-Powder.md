@@ -216,7 +216,7 @@ end
 
 It's time for a test run !
 
-(GIF 1)
+![Test Run 1 GIF]({{ site.url }}/images/LIKO-12/Doodles/1/TestRun1.gif)
 
 ---
 
@@ -235,7 +235,7 @@ local function updateParticle(x,y)
 	local pcol = cimg:getPixel(x,y) --The particle color
 	if cimg:getPixel(x,y+1) == 0 then --If the pixel under the particle is already filled
 ```
-(IMAGE 1)
+![Particle Case 1]({{ site.url }}/images/LIKO-12/Doodles/1/PState1.png)
 ```lua
 		--Move the particle
 		cimg:setPixel(x,y+1,pcol):setPixel(x,y,0)
@@ -247,7 +247,7 @@ local function updateParticle(x,y)
 	
 		if cimg:getPixel(x-1,y+1) == 0 then --Check if the particle can move to the left pixel under it.
 ```
-(IMAGE 2)
+![Particle Case 2]({{ site.url }}/images/LIKO-12/Doodles/1/PState2.png)
 ```lua
 			--Move the particle
 			cimg:setPixel(x-1,y+1,pcol):setPixel(x,y,0)
@@ -257,7 +257,7 @@ local function updateParticle(x,y)
 			
 		elseif cimg:getPixel(x+1,y+1) == 0 then --If not then heck if the particle can move to the right pixel under it.
 ```
-(IMAGE 3)
+![Particle Case 3]({{ site.url }}/images/LIKO-12/Doodles/1/PState3.png)
 ```lua
 			--Move the particle
 			cimg:setPixel(x+1,y+1,pcol):setPixel(x,y,0)
