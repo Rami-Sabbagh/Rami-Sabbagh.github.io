@@ -37,6 +37,11 @@ local cw, ch = sw, sh-8 --The powder canvas size, with 8 free pixels from the bo
 
 local cimg = imagedata(cw,ch) --The imagedata of the powder canvas, we can easily create one by a single call.
 ```
+<script src="https://gist.github.com/RamiLego4Game/d56ce0a5a4a9581edb49dad2802fddcd.js"></script>
+
+BLAH
+
+{% gist d56ce0a5a4a9581edb49dad2802fddcd cfca9a90609adf1621ef44f73e4e05385f14276e %}
 
 And creating a particle is easy then
 
