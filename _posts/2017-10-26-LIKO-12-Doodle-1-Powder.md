@@ -37,7 +37,6 @@ local cw, ch = sw, sh-8 --The powder canvas size, with 8 free pixels from the bo
 
 local cimg = imagedata(cw,ch) --The imagedata of the powder canvas, we can easily create one by a single call.
 ```
-{% gist d56ce0a5a4a9581edb49dad2802fddcd Powder.lua %}
 
 And creating a particle is easy then
 
@@ -51,71 +50,12 @@ local function createParticle(x,y,c)
 	parts[#parts+1] = {x,y} --This way is faster than table.insert()
 end
 ```
-{% gist d56ce0a5a4a9581edb49dad2802fddcd P1.patch %}
+{% gist d56ce0a5a4a9581edb49dad2802fddcd P1.lua.patch %}
 
 Next I have to hook the createParticle with the mouse, but wait, what about the mobile devices with multitouch ??
 I can simply handle this by storing each touch position in a table, and simulating the mouse as a touch on desktops.
 
-```lua
-Controls("touch") --I have to set the controls type to touch for it to work ! (It defaults to the controllers).
-
----local sw, sh = screenSize()
----local cw, ch = sw, sh-8
-
----local cimg = imagedata(cw,ch)
-
----local parts = {}
-local touch = {} --The touches table.
-
----local function createParticle(x,y,c)
----  if x < 0 or y < 0 or x > cw-1 or y > ch-1 then return end
----	cimg:setPixel(x,y,c)
----	parts[#parts+1] = {x,y}
----end
-
---Touch Events--
---They should be made globals for LIKO-12 to call them.
-
---Called when the screen is touched.
-function _touchpressed(id,x,y)
-	touch[id] = {x,y}
-end
-
---Called when a touch moves.
-function _touchmoved(id,x,y)
-	touch[id][1] = x
-	touch[id][2] = y
-end
-
---Called when a touch is released.
-function _touchmoved(id,x,y)
-	touch[id] = nil
-end
-
---Mouse Events--
---Note: LIKO-12 simulates touch as a mouse by default.
-
---Called when a mouse button is pressed
-function _mousepressed(x,y,button,istouch)
-	if istouch then return end --We already handle touch events.
-	if button ~= 1 then return end --I only want to handle the left mouse button.
-	_touchpressed(0,x,y)
-end
-
---Called when the mouse moves.
-function _mousemoved(x,y,dx,dy,istouch)
-	if istouch then return end --We already handle touch events.
-	if not isMDown(1) then return end --Because the mouse button is not held down.
-	_touchmoved(0,x,y)
-end
-
---Called when a mouse button is released
-function _mousereleased(x,y,button,istouch)
-	if istouch then return end --We already handle touch events.
-	if button ~= 1 then return end --I only want to handle the left mouse button.
-	_touchreleased(0,x,y)
-end
-```
+{% gist d56ce0a5a4a9581edb49dad2802fddcd P2.lua.patch %}
 
 Now I will create a ticks system and call createParticle in it.
 
