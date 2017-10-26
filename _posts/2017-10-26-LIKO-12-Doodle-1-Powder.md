@@ -295,3 +295,48 @@ function _update() ... end
 End-Of-File
 ]]
 ```
+
+But there's 1 thing, when the particle is created on the sides of the screen, or when it reaches the bottom of the canvas it will error because of out-of-bound `getPixel` !
+To avoid that I made 2 edits:
+
+1. Create a border around the cavnas:
+
+`imagedata:map(func)` call func for each pixel in the imagedata.
+{: .notice_info}
+
+```lua
+--[[
+Controls("touch")
+
+...
+
+local cimg = imagedata(cw,ch)
+]]
+
+cimg:map(function(x,y,c)
+	if x == 0 or y == 0 or x == cw-1 or y == ch-1 then
+		return 15
+	end
+end)
+
+--The rest of the code
+```
+
+2. Set the limits of `createParticle` to set inside the border (inorder to not replace the border)
+
+```lua
+---....
+local function createParticle(x,y,c)
+	if x < 1 or y < 1 or x > cw-2 or y > ch-2 then return end --This line have been changed !
+	--...
+end
+---....
+```
+
+---
+
+It's time for another test run !
+
+![Test Run 2 GIF]({{ site.url }}/images/LIKO-12/Doodles/1/TestRun2.gif)
+
+---
