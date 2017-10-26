@@ -41,7 +41,21 @@ local cimg = imagedata(cw,ch) --The imagedata of the powder canvas, we can easil
 
 BLAH 2
 
-{% gist RamiLego4Game/d56ce0a5a4a9581edb49dad2802fddcd/cfca9a90609adf1621ef44f73e4e05385f14276e %}
+{% gist RamiLego4Game/d56ce0a5a4a9581edb49dad2802fddcd %}
+
+BLAH 3
+{% gist cfca9a90609adf1621ef44f73e4e05385f14276e %}
+
+Blah 3.5
+{% gist RamiLego4Game/cfca9a90609adf1621ef44f73e4e05385f14276e %}
+
+Blah 4
+
+{% gist d56ce0a5a4a9581edb49dad2802fddcd %}
+
+BLAH 5
+
+<script src="https://gist.github.com/RamiLego4Game/d56ce0a5a4a9581edb49dad2802fddcd/cfca9a90609adf1621ef44f73e4e05385f14276e.js"></script>
 
 And creating a particle is easy then
 
