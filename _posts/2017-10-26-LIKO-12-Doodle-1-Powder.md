@@ -32,9 +32,11 @@ The LIKO-12 GPU offers 2 amazing features called _images_ and _imagedatas_:
 
 - **ImageDatas:** They are the _data_ of an image that you can read pixels from, set pixels to, encode, export to a png, etc.., But without the ability to draw them.
 
+You can convert an ImageData to an Image and vice versa.
+
 ---
 
-So here I want to create an image with size of the screen, but leaving some space at the bottom for a toolbar, I can simply achive this by a single call !
+So here I want to create an image with the size of the screen, but leaving some space at the bottom for a toolbar, I can simply achive this by a single call !
 
 ```lua
 local sw, sh = screenSize() --Returns the size of the screen, so you won't ever have to remember the resolution of LIKO-12 screen :P
@@ -61,9 +63,11 @@ local function createParticle(x,y,c)
 end
 ```
 
+I had to store the created particles in a table so they get updated each tick until they reach their static state.
+
 ---
 
-Next I have to hook the createParticle with the mouse, but wait, what about the mobile devices with multitouch ??
+Next I have to hook the `createParticle` function with the mouse, but wait, what about the mobile devices with multitouch ??
 I can simply handle this by storing each touch position in a table, and simulating the mouse as a touch on desktops.
 
 ```lua
@@ -174,7 +178,7 @@ end
 ]]
 ```
 
-Let's draw the powder canvas now
+Now it's time to add the powder canvas drawing code.
 
 ```lua
 --[[
@@ -234,7 +238,7 @@ local function updateTouch() ... end
 
 local function updateParticle(x,y)
 	local pcol = cimg:getPixel(x,y) --The particle color
-	if cimg:getPixel(x,y+1) == 0 then --If the pixel under the particle is already filled
+	if cimg:getPixel(x,y+1) == 0 then --If the pixel under the particle is empty
 ```
 ![Particle Case 1]({{ site.url }}/images/LIKO-12/Doodles/1/PState1.png)
 ```lua
@@ -256,7 +260,7 @@ local function updateParticle(x,y)
 			--Return the new position
 			return x-1,y+1
 			
-		elseif cimg:getPixel(x+1,y+1) == 0 then --If not then heck if the particle can move to the right pixel under it.
+		elseif cimg:getPixel(x+1,y+1) == 0 then --If not then check if the particle can move to the right pixel under it.
 ```
 ![Particle Case 3]({{ site.url }}/images/LIKO-12/Doodles/1/PState3.png)
 ```lua
@@ -323,7 +327,7 @@ end)
 --The rest of the code
 ```
 
-#### Set the limits of `createParticle` to set inside the border (inorder to not replace the border)
+#### Set the limits of `createParticle` to only work inside the border (inorder to not replace the border)
 
 ```lua
 ---....
@@ -350,10 +354,10 @@ The bottom toolbar would have:
 
 #### The color box:
 
-I'm gonna draw a sprite, and use `pal()` to change the color inside of it:
+I'm going to draw a sprite, and use `pal()` to change the color inside of it:
 
 `pal(c1,c2)` Changes `c1` to have the color of `c2`.
-{: .noice_info}
+{: .notice_info}
 
 ![Colorbox Sprite]({{ site.url }}/images/LIKO-12/Doodles/1/ColorBox.png)
 
@@ -369,8 +373,6 @@ That grid function will take a mouse position, and return the position of the ce
 And for the colors bar drawing I'll create an image with the 15 color, and scale it by 8 when drawing it.
 
 ---
-
-Let's do that:
 
 ```lua
 ---....
