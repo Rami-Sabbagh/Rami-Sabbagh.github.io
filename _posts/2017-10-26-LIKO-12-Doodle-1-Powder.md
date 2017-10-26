@@ -23,11 +23,15 @@ Creating a powder sandbox in LIKO-12, is not hard at all, it only took me 2 hour
 
 First, I had to find a way to store the powder canvas, and for this I used an _imagedata_, but you may be asking, what an imagedata is ?
 
+---
+
 The LIKO-12 GPU offers 2 amazing features called _images_ and _imagedatas_,
 
-Images are like sprites (Sprites are actually images internaly), that you can directly draw to the screen, but without being able to edit them.
+- **Images:** They are like sprites (Sprites are actually images internaly), that you can directly draw to the screen, but without being able to edit them.
 
-While imagedatas are the _data_ of an image that you can read pixels from, set pixels to, encode, export to a png, etc.., But without the ability to draw them.
+- **ImageDatas:** They are the _data_ of an image that you can read pixels from, set pixels to, encode, export to a png, etc.., But without the ability to draw them.
+
+---
 
 So here I want to create an image with size of the screen, but leaving some space at the buttom for a tool bar, I can simply achive this by a single call !
 
