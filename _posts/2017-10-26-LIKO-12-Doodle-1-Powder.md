@@ -1,5 +1,5 @@
 ---
-title: "LIKO-12 Doodle #1 - PowderV1.1"
+title: "LIKO-12 Doodle #1 - PowderV1.2"
 image: images/LIKO-12/Doodles/1/PostImage.png
 categories:
   - LIKO-12
@@ -456,6 +456,14 @@ end
 ```
 
 ![Final GIF]({{ site.url }}/images/LIKO-12/Doodles/1/Final.gif)
+
+You can get the final version by typing in LIKO-12 terminal:
+
+```
+pastebin get x1yDaTxk powderV1.2.lk12
+load powderV1.2
+run
+```
 
 ---
 
