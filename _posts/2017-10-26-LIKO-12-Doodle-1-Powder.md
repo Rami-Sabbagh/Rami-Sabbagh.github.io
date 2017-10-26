@@ -1,6 +1,6 @@
 ---
 title: "LIKO-12 Doodle #1 - PowderV1.1"
-image: {{ site.url }}/images/LIKO-12/Doodles/1/PostImage.png
+image: images/LIKO-12/Doodles/1/PostImage.png
 categories:
   - LIKO-12
   - Doodles
