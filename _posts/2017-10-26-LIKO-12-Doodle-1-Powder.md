@@ -34,7 +34,7 @@ The LIKO-12 GPU offers 2 amazing features called _images_ and _imagedatas_:
 
 ---
 
-So here I want to create an image with size of the screen, but leaving some space at the buttom for a tool bar, I can simply achive this by a single call !
+So here I want to create an image with size of the screen, but leaving some space at the bottom for a toolbar, I can simply achive this by a single call !
 
 ```lua
 local sw, sh = screenSize() --Returns the size of the screen, so you won't ever have to remember the resolution of LIKO-12 screen :P
