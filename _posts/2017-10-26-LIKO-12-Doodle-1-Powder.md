@@ -37,34 +37,11 @@ local cw, ch = sw, sh-8 --The powder canvas size, with 8 free pixels from the bo
 
 local cimg = imagedata(cw,ch) --The imagedata of the powder canvas, we can easily create one by a single call.
 ```
-<script src="https://gist.github.com/RamiLego4Game/d56ce0a5a4a9581edb49dad2802fddcd.js"></script>
-
-BLAH 2
-
-{% gist RamiLego4Game/d56ce0a5a4a9581edb49dad2802fddcd %}
-
-BLAH 3
-{% gist cfca9a90609adf1621ef44f73e4e05385f14276e %}
-
-Blah 3.5
-{% gist RamiLego4Game/cfca9a90609adf1621ef44f73e4e05385f14276e %}
-
-Blah 4
-
-{% gist d56ce0a5a4a9581edb49dad2802fddcd %}
-
-BLAH 5
-
-<script src="https://gist.github.com/RamiLego4Game/d56ce0a5a4a9581edb49dad2802fddcd/cfca9a90609adf1621ef44f73e4e05385f14276e.js"></script>
+{% gist d56ce0a5a4a9581edb49dad2802fddcd Powder.lua %}
 
 And creating a particle is easy then
 
 ```lua
----local sw, sh = screenSize()
----local cw, ch = sw, sh-8
-
----local cimg = imagedata(cw,ch)
-
 local parts = {} --A list of particle to update/move.
 
 --Particle X, Particle Y, Particle Color
@@ -74,6 +51,7 @@ local function createParticle(x,y,c)
 	parts[#parts+1] = {x,y} --This way is faster than table.insert()
 end
 ```
+{% gist d56ce0a5a4a9581edb49dad2802fddcd P1.patch %}
 
 Next I have to hook the createParticle with the mouse, but wait, what about the mobile devices with multitouch ??
 I can simply handle this by storing each touch position in a table, and simulating the mouse as a touch on desktops.
