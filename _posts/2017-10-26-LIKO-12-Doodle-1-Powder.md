@@ -1,5 +1,6 @@
 ---
 title: "LIKO-12 Doodle #1 - PowderV1.1"
+image: {{ site.url }}/images/LIKO-12/Doodles/1/PostImage.png
 categories:
   - LIKO-12
   - Doodles
@@ -15,9 +16,9 @@ tags:
   - LÖVE
 ---
 
-(The Powder Doodle GIF)
+![The Powder Doodle GIF]({{ site.url }}/images/LIKO-12/Doodles/1/Preview.gif)
 
-_A powder sandbox in LIKO-12_
+> A powder sandbox in LIKO-12
 
 Creating a powder sandbox in LIKO-12, is not hard at all, it only took me 2 hours to write the whole doodle.
 
@@ -299,7 +300,7 @@ End-Of-File
 But there's 1 thing, when the particle is created on the sides of the screen, or when it reaches the bottom of the canvas it will error because of out-of-bound `getPixel` !
 To avoid that I made 2 edits:
 
-1. Create a border around the cavnas:
+#### Create a border around the cavnas:
 
 `imagedata:map(func)` call func for each pixel in the imagedata.
 {: .notice_info}
@@ -322,7 +323,7 @@ end)
 --The rest of the code
 ```
 
-2. Set the limits of `createParticle` to set inside the border (inorder to not replace the border)
+#### Set the limits of `createParticle` to set inside the border (inorder to not replace the border)
 
 ```lua
 ---....
@@ -338,5 +339,128 @@ end
 It's time for another test run !
 
 ![Test Run 2 GIF]({{ site.url }}/images/LIKO-12/Doodles/1/TestRun2.gif)
+
+---
+
+**The final task:** Create the bottom toolbar !
+
+The bottom toolbar would have:
+- A color box, to show the current selected color
+- A colors bar with 15 color (black can't be used)
+
+#### The color box:
+
+I'm gonna draw a sprite, and use `pal()` to change the color inside of it:
+
+`pal(c1,c2)` Changes `c1` to have the color of `c2`.
+{: .noice_info}
+
+![Colorbox Sprite]({{ site.url }}/images/LIKO-12/Doodles/1/ColorBox.png)
+
+#### The colors bar:
+
+I'll use a useful function provided by DiskOS named `whereInGrid(mx,my,grid)`
+
+The grid definition: `{Grid Top-Left X, Grid Top-Left Y, Grid Width in Pixels, Grid Height in Pixels, The number of the columns, The number of rows}`
+{: .notice_info}
+
+That grid function will take a mouse position, and return the position of the cell that the mouse is hovering over in cells.
+
+And for the colors bar drawing I'll create an image with the 15 color, and scale it by 8 when drawing it.
+
+---
+
+Let's do that:
+
+```lua
+---....
+---cimg:map(...)
+
+local pimg = imagedata(15,1)
+local __c = 0 --A temp variable
+pimg:map(function(x,y,c)
+	__c = __c + 1
+	return __c
+end)
+__c = nil
+pimg = pimg:image() --Convert it to a drawable image
+
+local palgrid = {sw-8*15,sh-8, 8*15,8, 15, 1}
+
+---local parts...
+---local touch...
+
+local selcol = 4 --The selected color id
+
+---....
+
+local function updateTouch()
+ for touchid, pos in pairs(touch) do
+  createParticle(pos[1],pos[2],selcol) --Now passes selcol instead of 7.
+ end
+end
+
+---....
+
+---local function drawSandbox() ... end
+
+--Draws the toolbar
+local function drawToolbar()
+	rect(0,sh-8,sw,8,false,9) --Draws an orange rectangle bar.
+	pal(15,selcol) --Change the color 15 to the selection color.
+	Sprite(0, 0, sh-8) --Draw the sprite 0 (ColorBox) at the left side of the toolbar.
+	pal(15,15) --Set color 15 back to it's original color.
+	pimg:draw(palgrid[1],palgrid[2], 0, 8,8) --Draw the palette/colors bar image.
+end
+
+---function _update() ... end
+
+function _draw()
+ clear() --Clear the pervious screen.
+ drawSandbox()
+ drawToolbar()
+end
+
+---...
+
+--The toolbar doesn't have to handle multitouch, so I will put it's handling code in _mousepressed.
+function _mousepressed(x,y,button,istouch)
+ --Since it's handled before the istouch conditional then it will work for both mouse and touch.
+ local cx, cy = whereInGrid(x,y,palgrid)
+ if cx then selcol = cx end
+ 
+ if istouch then return end --We already handle touch events.
+ if button ~= 1 then return end --I only want to handle the left mouse button.
+ _touchpressed(0,x,y)
+end
+
+--- To the end of the file.
+```
+
+---
+
+That's it, you got a full clone of my powder doodle !
+
+![Result GIF]({{ site.url }}/images/LIKO-12/Doodles/1/Result.gif)
+
+---
+
+Oh, and you may notice that the sandbox ticks so slow, for that we can do a very simple patch in `_update`:
+
+```lua
+function _update(dt)
+ for i=1,5 do --To speedup the simulation, you can change 5 to whatever you want (but not negative !).
+  tick()
+ end
+end
+```
+
+![Final GIF]({{ site.url }}/images/LIKO-12/Doodles/1/Final.gif)
+
+---
+
+Thanks for reading !
+
+I hope you enjoyed it, Feel free to support my work by donating to [LIKO-12](http://ramilego4game.itch.io/liko12) :)
 
 ---
