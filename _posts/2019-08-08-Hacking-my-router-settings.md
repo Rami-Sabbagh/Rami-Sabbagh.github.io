@@ -101,7 +101,7 @@ But it turned out it's not that simple, but still easy, I need to capture the co
 
 > Note: In those pictures I'm displaying myself capturing my own mobile sending a fake password, because the original footage was not screenshotted.
 
-After dad has returned to the house, and the clock was 10:30 PM, it's the time to do the wifi work:
+Dad came home at 10:30 PM, and it was the time to do the actual work:
 
 ### 1. Booting Wifislax
 I've install wifislax into my usbstick, and booted it with `CopyToRam` option, so it runs faster, and lets me use the usb for storing files.
@@ -142,6 +142,8 @@ airmon-ng wlan0 11
 
 > `11` Is the wifi network channel number.
 
+Otherwise the adapter would ignore any packets not belonging to it.
+
 ### 4. Start the capturing proccess, and find my dad's mobile MAC address
 I've mounted the usb stick, and created a folder named `captures`, to store the the wifi frames.
 
@@ -177,7 +179,7 @@ It's 11:00 PM now, and my dad is asking me to sleep, yea I would usually sleep, 
 So I opened youtube on my phone, and started watching some youtube videos, he got angry and cutted the internet, yeah !
 
 ### 8. Shut down the system
-Okay now, the cookie mas have been sniffed, so I terminated the terminal, and shutdown the whole system for the next day,
+Okay now, the cookie has been sniffed, so I terminated the terminal, and shutdown the whole system for the next day,
 
 If you want to continue using it, you could turn off the monitor mode by typing
 
@@ -215,7 +217,7 @@ Add a new entry, set the type into `wpa-pwd`, then fill in the wifi password and
 
 Press `Ok` on each windows until you return back to the main wireshark window
 
-### 3. Search for http packets while includes cookies
+### 3. Search for http packets that include cookies
 
 That could be accomplished by using this filter `http.cookie && ip.dst == 192.168.1.1`
 
