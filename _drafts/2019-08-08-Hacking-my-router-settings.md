@@ -40,12 +40,15 @@ And now with his bandwidth rule, all the rust of the family (3 members) gets 50k
 
 It's also that the main router is connnected with a battery, so it stays working when the power is off, but the other router (Boost) is not, so we are also left with no internet when the power is off (About 4 hours everyday).
 
-I once told my dad: Dad, could you please disable the bandwidth control ? the internet is really slow :(
+I once had this conversation with him:
+```
+Me: Dad, could you please disable the bandwidth control ? the internet is really slow :(
 He replied: There is no bandwidth control!, It's a general issue for the whole building, ask the neighboors.
 I replied: No, I know you dad, you have set us to only have half the speed.
 He replied: I'm no lying, ask the nighboors.
 I replied: No you are, please, disable it, at least when you are not here..
 He replied: This is the situation, deal with, it's not changing.
+```
 
 50kb/s is such a pain, everything is slow, youtube lags even at 144p...
 
@@ -53,7 +56,7 @@ So I decided it's time to wear my black hat...
 
 He leaves his laptop at home, and it's locked with a password all the family knows, so, when he was out, I openned the laptop, logged in, and got the `HA` wifi password ;)
 
---------------------(Windows Password Screenshot)
+![00-wireless-password.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/00-wireless-password.png)
 
 I'm now in, that's good, I could enjoy having internet when the power is off, but the 50kb/s limit is still there...
 
