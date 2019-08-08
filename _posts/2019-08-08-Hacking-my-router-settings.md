@@ -37,7 +37,7 @@ So he basically took full control of the main router, setting unfair rules for t
 
 Our ADSL speed is 1 Mbps, which is usually 102kbyte/s when stable, and now with his bandwidth rule, all the rest of the family (3 members) gets 50kbytes/s to fight each other for...
 
-It's also that the main router is connnected with a battery, so it stays working when the power is off, but the other router (Boost) is not, so we are also left with no internet when the power is off (About 4 hours everyday).
+It's also that the main router is connnected with a battery, so it stays working when the power is out, but the other router (Boost) is not, and we are also left with no internet when the power is out (About 4 hours everyday).
 
 I once had this conversation with him:
 ```
