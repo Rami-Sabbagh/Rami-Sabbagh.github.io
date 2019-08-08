@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Infinite Worlds + Deleting Objects"
 image: images/Legacy/2015-07-14_21-00-30-825x510.png
 categories:

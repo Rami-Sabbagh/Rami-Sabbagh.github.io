@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Hello world!"
 categories:
   - Old blog

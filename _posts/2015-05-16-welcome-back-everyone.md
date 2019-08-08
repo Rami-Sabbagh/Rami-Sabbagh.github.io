@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Welcome Back Everyone !"
 image: images/Legacy/screenshot02-e1431774743456-825x406.png
 categories:

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Skipping the prototype stage !"
 categories:
   - PixelizerBox

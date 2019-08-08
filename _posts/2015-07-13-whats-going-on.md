@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "What's going on !"
 categories:
   - PixelizerBox

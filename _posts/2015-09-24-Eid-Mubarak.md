@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Eid Mubarak"
 image: images/Legacy/Eid-Mubarak.png
 categories:

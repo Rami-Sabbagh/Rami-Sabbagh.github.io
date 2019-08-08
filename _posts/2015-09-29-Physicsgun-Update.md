@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Physicsgun Update"
 image: images/Legacy/PixelizerBox_Development_Preview-e1443721152200.png
 categories:

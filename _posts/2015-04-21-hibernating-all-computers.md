@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Hibernating All Computers"
 categories:
   - PixelizerBox

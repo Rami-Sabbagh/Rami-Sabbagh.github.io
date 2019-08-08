@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "LIKO-12 Doodle #1 - PowderV1.2"
 image: images/LIKO-12/Doodles/1/PostImage.png
 categories:

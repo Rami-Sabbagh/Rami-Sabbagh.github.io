@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "PixelizerBox V0.1.3.0 Update (Modding Support)"
 image: images/Legacy/screenshot-825x510.png
 categories:
