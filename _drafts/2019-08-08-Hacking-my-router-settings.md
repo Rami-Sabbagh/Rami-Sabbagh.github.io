@@ -269,4 +269,4 @@ And feel free to support this content by donating to my FOSS project, [LIKO-12](
 
 ---
 
-P.S: Dad, if you are reading this, please don't block me out q-q.
+P.S: Dad, if you are reading this, please don't block me out 😰
