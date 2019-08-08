@@ -18,7 +18,7 @@ tags:
   - Configuration
 ---
 
-Hello everyone, it's been 2 years since the last blog post, yea, I'm such a lazy blogger :P
+Hello everyone, it's been 2 years since the last blog post, yea, I'm such a lazy blogger 😛
 
 Much changes has been made into my home's network, my dad took control of all of it.
 
@@ -28,7 +28,7 @@ We have 2 TP-Link routers at home:
 
 What my dad has made was:
 - Changed the main router SSID (which was `InGodWeTrust_Main`) to `InGodWeTrust_Main`
-- Changed the main router wifi password, and never gave it to anyone else in the family :(
+- Changed the main router wifi password, and never gave it to anyone else in the family 😦
 - Enabled bandwidth control, gave the full speed for himself, and half the speed only for the `Boost` router, which we use, and never told anyone about that.
 - Made a firewall rule for automatically cutting the internet for everyone (including himself) from 11 PM until 4 AM
 - Disabled the firewall rule when he wanted to use the internet after 11 PM....
@@ -41,19 +41,19 @@ It's also that the main router is connnected with a battery, so it stays working
 
 I once had this conversation with him:
 ```
-Me: Dad, could you please disable the bandwidth control ? the internet is really slow :(
+Me: Dad, could you please disable the bandwidth control ? the internet is really slow 😔
 He replied: There is no bandwidth control!, It's a general issue for the whole building, ask the neighboors.
 I replied: No, I know you dad, you have set us to only have half the speed.
-He replied: I'm not lying, ask the nighboors ;)
-I replied: No you are, please, disable it, at least when you are not here.. :/
+He replied: I'm not lying, ask the nighboors 😉
+I replied: No you are, please, disable it, at least when you are not here.. 😕
 He replied: This is the situation, deal with, it's not changing. ¯\_(ツ)_/¯
 ```
 
 50kb/s is such a pain, everything is slow, youtube lags even at 144p...
 
-So I decided it's time to wear my black hat...
+So I decided it's time to wear my black hat 🕵...
 
-He leaves his laptop at home, and it's locked with a password which all the family knows, so, when he was out, I openned the laptop, logged in, and got the `HA` wifi password ;)
+He leaves his laptop at home, and it's locked with a password which all the family knows, so, when he was out, I openned the laptop, logged in, and got the `HA` wifi password 😉
 
 ![00-wireless-password.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/00-wireless-password.png)
 
@@ -92,7 +92,7 @@ function PCSubWin()
 }
 ```
 
-It's just a simple plaintext cookie with the username and password base64 encoded (because of UTF-8 characters support).
+It's just a simple plaintext cookie 🍪 with the username and password base64 encoded (because of UTF-8 characters support).
 
 That should be simple, I only have to sniff the wifi packet containing the cookie,
 But it turned out it's not that simple, but still easy, I need to capture the connection handshake so I could decrypt the wifi frames.
@@ -118,7 +118,7 @@ airodump-ng wlan0
 
 > (Press `Control-C` to get back into the prompt)
 
-I've highlighted my router entry, but blured all the second halves of the mac addresses, for privacy reasons ;)
+I've highlighted my router entry, but blured all the second halves of the mac addresses, for privacy reasons 😉
 
 ### 3. Killing the network manager
 I've read in multiple places, and aircrack itself mentions in the terminal, that the network manager and some other services might cause problems with the sniffing proccess, so it's much better to kill them:
@@ -167,7 +167,7 @@ The `-a` flag specifies the router ESSID, the `-c` specifies the target device M
 ![05-deauth.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/05-deauth.png)
 
 ### 6. Checking if handshake was captured
-I've closed the second terminal, and returned to the first one to check if the handshake was captured, and yes it was :)
+I've closed the second terminal, and returned to the first one to check if the handshake was captured, and yes it was 🙂
 
 ![06-handshake-captured.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/06-handshake-captured.png)
 
@@ -233,7 +233,7 @@ Now take that base64 encoded string and decode it
 aGVsbG86ZGVhciByZWFkZXIgIQ== -> hello:dear reader !
 ```
 
-> Sure this is fake login cookie, I wount share my router login :P
+> Sure this is fake login cookie, I wount share my router login 😛
 
 ## Exploring the system
 
@@ -252,20 +252,20 @@ That was easy fix, just untick the box on the top and save.
 
 ---
 
-I hope my dad forgives me for doing that, I'm disabling the bandwidth control when he is out of home, and re-enabling it when he is back, you know, the main rule in hacking is _leave no trace._
+I hope my dad forgives me for doing that, I'm disabling the bandwidth control when he is out of home, and re-enabling it when he is back, you know, the main rule in hacking is to _leave no trace_.
 
 And it would be good for both of us, not harming him, and not harming me.
 
 ## Coming next:
-In the the next blog post I'll explain my solution for quickly enabling and disabling the bandwidth control with a single press, so my father won't detect me ;)
+In the the next blog post I'll explain my solution for quickly enabling and disabling the bandwidth control with a single press, so my father won't detect me 😉
 
 ---
 
 Thanks for reading !
 
-It took me a whole day to write this, please share me your thoughts at [my twitter](https://twitter.com/ramilego4game) ;)
+It took me a whole day to write this, please share me your thoughts at [my twitter](https://twitter.com/ramilego4game) 😉
 
-And feel free to support this content by donating to my FOSS project, [LIKO-12](https://ramilego4game.itch.io/liko12) <3
+And feel free to support this content by donating to my FOSS project, [LIKO-12](https://ramilego4game.itch.io/liko12) 🧡
 
 ---
 
