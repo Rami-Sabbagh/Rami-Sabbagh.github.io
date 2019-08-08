@@ -18,7 +18,7 @@ tags:
   - Configuration
 ---
 
-Hello everyone, it's been 2 years since the last blog post, yea, I'm a lazy blogger :P
+Hello everyone, it's been 2 years since the last blog post, yea, I'm such a lazy blogger :P
 
 Much changes has been made into my home's network, my dad took control of all of it.
 
@@ -30,13 +30,12 @@ What my dad has made was:
 - Changed the main router SSID (which was `InGodWeTrust_Main`) to `InGodWeTrust_Main`
 - Changed the main router wifi password, and never gave it to anyone else in the family :(
 - Enabled bandwidth control, gave the full speed for himself, and half the speed only for the `Boost` router, which we use, and never told anyone about that.
-- Made firewall rule for automatically cutting the internet for everyone (including himself) from 11 PM until 4 AM
+- Made a firewall rule for automatically cutting the internet for everyone (including himself) from 11 PM until 4 AM
 - Disabled the firewall rule when he wanted to use the internet after 11 PM....
 
 So he basically took full control of the main router, setting unfair rules for the rest of the family, and not telling anyone about the bandwidth one...
 
-Our ADSL speed is 1 Mbps, which is usually 102kbyte/s when stable
-And now with his bandwidth rule, all the rust of the family (3 members) gets 50kbytes/s to fight each other in...
+Our ADSL speed is 1 Mbps, which is usually 102kbyte/s when stable, and now with his bandwidth rule, all the rest of the family (3 members) gets 50kbytes/s to fight each other for...
 
 It's also that the main router is connnected with a battery, so it stays working when the power is off, but the other router (Boost) is not, so we are also left with no internet when the power is off (About 4 hours everyday).
 
@@ -45,16 +44,16 @@ I once had this conversation with him:
 Me: Dad, could you please disable the bandwidth control ? the internet is really slow :(
 He replied: There is no bandwidth control!, It's a general issue for the whole building, ask the neighboors.
 I replied: No, I know you dad, you have set us to only have half the speed.
-He replied: I'm no lying, ask the nighboors.
-I replied: No you are, please, disable it, at least when you are not here..
-He replied: This is the situation, deal with, it's not changing.
+He replied: I'm not lying, ask the nighboors ;)
+I replied: No you are, please, disable it, at least when you are not here.. :/
+He replied: This is the situation, deal with, it's not changing. ¯\_(ツ)_/¯
 ```
 
 50kb/s is such a pain, everything is slow, youtube lags even at 144p...
 
 So I decided it's time to wear my black hat...
 
-He leaves his laptop at home, and it's locked with a password all the family knows, so, when he was out, I openned the laptop, logged in, and got the `HA` wifi password ;)
+He leaves his laptop at home, and it's locked with a password which all the family knows, so, when he was out, I openned the laptop, logged in, and got the `HA` wifi password ;)
 
 ![00-wireless-password.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/00-wireless-password.png)
 
@@ -64,17 +63,17 @@ I went and started doing some research, I already played with wifislax 3 years a
 
 It's a special linux distro with many wifi tools pre-installed, and ready for hacking, easily installable on a usb stick.
 
-I know there's kali linux, but it's 2GB download, and you know, the 50kb/s won't help, I have wifislax already downloaded, it's a 3 years old copy, but those things still work.
+I know there's kali linux, but it's 2GB download, and you know, the 50kb/s won't help, I have wifislax already downloaded, _it's a 3 years old copy_, but those things still _work_.
 
 ## Knowing the router configuration/settings webpage
 
-As most routers, the router settings page is at http://192.168.1.1/, and those settings pages, are accessed throw http, and you know, that's not encrypted at all.
+As most routers, the router settings page is at http://192.168.1.1/, and those settings pages, are accessed through http, and you know, it's not encrypted at all.
 
-Unlike classic routers, this router gives a page with a fields for username and password
+Unlike classic routers, this router gives a page with fields for username and password:
 
 ![00-router-login-page.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/00-router-login-page.png)
 
-I downloaded the page, inspected it's content, and found the javascript code for the login button:
+I downloaded the page, inspected it's content, and found the following javascript code for the login button:
 
 ```js
 function PCSubWin()
@@ -107,10 +106,10 @@ After dad has returned to the house, and the clock was 10:30 PM, it's the time t
 ### 1. Booting Wifislax
 I've install wifislax into my usbstick, and booted it with `CopyToRam` option, so it runs faster, and lets me use the usb for storing files.
 
-### 2. Figuring out the router ESSID and it's channel
+### 2. Figuring out the router BSSID and it's channel
 `Aircrack-ng` is such an awesome wifi hacking suit, it contains all the lovely tools you want.
 
-By executing the following command, I'll be able to know the router SSID and it's MAC, which I need both for the next steps:
+By executing the following command, I'll be able to know the router BSSID (MAC) and it's channel, which I need both for the next steps:
 ```
 airodump-ng wlan0
 ```
@@ -133,6 +132,8 @@ airmon-ng check kill
 ### 4. Enabling monitor mode
 Thankfully, my wifi adapted, which is `TP-Link TL-WN722N_V1`, supports monitor mode and packets injection.
 
+I would need the monitor mode inorder to capture all the wifi _"frames"_ flying around, which contain the cookie we want. It could by enabled with `airmon-ng`:
+
 ```
 airmon-ng wlan0 11
 ```
@@ -144,19 +145,20 @@ airmon-ng wlan0 11
 ### 4. Start the capturing proccess, and find my dad's mobile MAC address
 I've mounted the usb stick, and created a folder named `captures`, to store the the wifi frames.
 
-Openned a terminal in that folder, and executed the following command for starting the capture proccess:
+Openned a terminal in that folder, and executed the following command to start the capturing proccess:
 ```
 airodump-ng mon0 -c 11 --bssid C0:4A:00:XX:XX:XX -w HAC05
 ```
 
 ![04-device-found.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/04-device-found.png)
 
-As you can see, the highlighted line is the target device.
+That will capture all the wifi frames recieved by my adapter, and store them into a `.cap` file,
+It would also display the list of connected clients, as you see, I've highlighted the target device (my dad's phone).
 
 ### 5. Deauthunticate the target device
 Inorder to successfully decrypt the wifi frames into packets, I have to know the wifi password, and to capture the 4 steps handshake.
 
-The device is already connected, so I have to deauthunticate it first, inorder to do that, I openned another terminal and executing the following:
+The device is already connected, so I have to deauthunticate it first (so it handshakes again), inorder to do that, I openned another terminal and executing the following:
 ```
 aireplay-ng --deauth 10 -a C0:4A:00:XX:XX:XX -c 50:9E:A7:XX:XX:XX mon0
 ```
@@ -165,12 +167,12 @@ The `-a` flag specifies the router ESSID, the `-c` specifies the target device M
 ![05-deauth.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/05-deauth.png)
 
 ### 6. Checking if handshake was captured
-I've closed the second terminal, and return to the first one to check if the handshake was captured, and yes it was :)
+I've closed the second terminal, and returned to the first one to check if the handshake was captured, and yes it was :)
 
 ![06-handshake-captured.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/06-handshake-captured.png)
 
 ### 7. Making dad open the router settings page
-It's 11:00 PM now, and my dad is asking me to sleep, yea I would usually sleep, but this time I want him to cut the internet and force me to sleep,
+It's 11:00 PM now, and my dad is asking me to sleep, yea I would usually sleep, but this time I want him to cut the internet (by entering the router settings, and enabling the firewall rule) and force me to sleep,
 
 So I opened youtube on my phone, and started watching some youtube videos, he got angry and cutted the internet, yeah !
 
@@ -191,7 +193,7 @@ And start the network manager back from the start menu entry
 
 ## Reading the sniffed cookie packet
 
-The next day, I've booted back into Windows, and pulled the files out of the usb stick.
+The next day, I've booted into Windows, and pulled the files out of the usb stick.
 
 ### 1. Open the .cap file in wireshark
 
@@ -231,6 +233,8 @@ Now take that base64 encoded string and decode it
 aGVsbG86ZGVhciByZWFkZXIgIQ== -> hello:dear reader !
 ```
 
+> Sure this is fake login cookie, I wount share my router login :P
+
 ## Exploring the system
 
 And now I could login and check the bandwidth control which my dad claims to no exist
@@ -246,8 +250,14 @@ While the other router users (the rest of the family) has the min speed set to 1
 
 That was easy fix, just untick the box on the top and save.
 
+---
+
+I hope my dad forgives me for doing that, I'm disabling the bandwidth control when he is out of home, and re-enabling it when he is back, you know, the main rule in hacking is _leave no trace._
+
+And it would be good for both of us, not harming him, and not harming me.
+
 ## Coming next:
-In the the next blog post I'll explain about quickly enabling and disabling the bandwidth control when needed, so my father won't detect me ;)
+In the the next blog post I'll explain my solution for quickly enabling and disabling the bandwidth control with a single press, so my father won't detect me ;)
 
 ---
 
@@ -258,3 +268,5 @@ It took me a whole day to write this, please share me your thoughts at [my twitt
 And feel free to support this content by donating to my FOSS project, [LIKO-12](https://ramilego4game.itch.io/liko12) <3
 
 ---
+
+P.S: Dad, if you are reading this, please don't block me out q-q.
