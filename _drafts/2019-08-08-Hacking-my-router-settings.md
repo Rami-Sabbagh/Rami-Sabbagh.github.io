@@ -202,7 +202,7 @@ Go `Edit -> Perferences`
 
 Then `Protocols -> IEEE 802.11`, press `Edit...` near the `Decyption keys` text
 
-!11-protocol.png[]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/11-protocol.png)
+![11-protocol.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/11-protocol.png)
 
 Add a new entry, set the type into `wpa-pwd`, then fill in the wifi password and SSID in the key feed with this format `password:ssid`
 
