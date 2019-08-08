@@ -231,6 +231,30 @@ Now take that base64 encoded string and decode it
 aGVsbG86ZGVhciByZWFkZXIgIQ== -> hello:dear reader !
 ```
 
+## Exploring the system
 
+And now I could login and check the bandwidth control which my dad claims to no exist
 
-![]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/)
+![15-bandwidth-control.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/15-bandwidth-control.png)
+
+- 192.168.1.100: The IP of the other router.
+- 192.168.1.102-192.168.1.105: The IPs of old router users, which were reserved by MAC
+- 192.168.1.101: The IP of my dad's mobile, reserved by MAC.
+
+He has the min speed set to 50% for himself, and the max speed to 100%,
+While the other router users (the rest of the family) has the min speed set to 12% and the max into 50%....
+
+That was easy fix, just untick the box on the top and save.
+
+## Coming next:
+In the the next blog post I'll explain about quickly enabling and disabling the bandwidth control when needed, so my father won't detect me ;)
+
+---
+
+Thanks for reading !
+
+It took me a whole day to write this, please share me your thoughts at [my twitter](https://twitter.com/ramilego4game) ;)
+
+And feel free to support this content by donating to my FOSS project, [LIKO-12](https://ramilego4game.itch.io/liko12) <3
+
+---
