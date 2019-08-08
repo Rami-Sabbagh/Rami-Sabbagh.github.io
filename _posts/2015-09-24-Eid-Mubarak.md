@@ -11,4 +11,4 @@ tags:
 
 ![image]({{ site.url }}/images/Legacy/Eid-Mubarak.png)
 
-Eid Mubarak For ALL :slight_smile:
+Eid Mubarak For ALL :)
