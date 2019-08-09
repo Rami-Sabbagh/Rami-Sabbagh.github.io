@@ -20,14 +20,14 @@ tags:
 
 Hello everyone, it's been 2 years since the last blog post, yea, I'm such a lazy blogger 😛
 
-Many changes have been made to my home's network, my dad took full control of it
+Many changes have been made to my home's network recently, my dad took full control of it...
 
 We have 2 TP-Link routers at home:
 - The main one, which connects with ADSL, is named `InGodWeTrust_HA`,
 - The slave one, which is connected with the main one via an ethernet cable, is named `InGodWeTrust_Boost`.
 
 What my dad has made was:
-- Changed the main router SSID (which was `InGodWeTrust_Main`) to `InGodWeTrust_Main`
+- Changed the main router SSID (which was `InGodWeTrust_Main`) to `InGodWeTrust_HA`
 - Changed the main router wifi password, and never gave it to anyone else in the family 😦
 - Enabled bandwidth control, gave the full speed for himself, and half the speed only for the `Boost` router, which we use, and never told anyone about that.
 - Made a firewall rule for automatically cutting the internet for everyone (including himself) from 11 PM until 4 AM
