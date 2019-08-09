@@ -37,12 +37,12 @@ So he basically took full control of the main router, setting unfair rules for t
 
 Our ADSL speed is 1 Mbps, which is usually 102kbyte/s when stable, and now with his bandwidth rule, all the rest of the family (3 members) gets 50kbytes/s to fight each other for...
 
-It's also that the main router is connnected with a battery, so it stays working when the power is out, but the other router (Boost) is not, and we are also left with no internet when the power is out (About 4 hours everyday).
+It's also that the main router is connnected with a battery, so it stays working when the power is out, but the other router (Boost) is not, and so we are left with no internet when the power is out (About 4 hours everyday).
 
 I once had this conversation with him:
 ```
 Me: Dad, could you please disable the bandwidth control ? the internet is really slow 😔
-He replied: There is no bandwidth control!, It's a general issue for the whole building, ask the neighboors.
+He replied: There is no bandwidth control!, It's a general issue for the whole building, ask the neighbors.
 I replied: No, I know you dad, you have set us to only have half the speed.
 He replied: I'm not lying, ask the nighboors 😉
 I replied: No you are, please, disable it, at least when you are not here.. 😕
@@ -53,21 +53,21 @@ He replied: This is the situation, deal with, it's not changing. ¯\_(ツ)_/¯
 
 So I decided it's time to wear my black hat 🕵...
 
-He leaves his laptop at home, and it's locked with a password which all the family knows, so, when he was out, I openned the laptop, logged in, and got the `HA` wifi password 😉
+He leaves his laptop at home, and it's locked with a password which all the family knows, so, when he was out, I openned the laptop, logged in, and got the `HA` wifi password out 😉
 
 ![00-wireless-password.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/00-wireless-password.png)
 
-I'm now in, that's good, I could enjoy having internet when the power is off, but the 50kb/s limit is still there...
+I'm now in, that's good, I could enjoy having internet when the power is out, but the 50kb/s limit is still there...
 
 I went and started doing some research, I already played with wifislax 3 years ago.
 
 It's a special linux distro with many wifi tools pre-installed, and ready for hacking, easily installable on a usb stick.
 
-I know there's kali linux, but it's 2GB download, and you know, the 50kb/s won't help, I have wifislax already downloaded, _it's a 3 years old copy_, but those things still _work_.
+I know there's kali linux, but it's 2GB download, and you know, the 50kb/s won't help, I have wifislax already downloaded, _it is a 3 years old copy_, but those things still _work_.
 
 ## Knowing the router configuration/settings webpage
 
-As most routers, the router settings page is at http://192.168.1.1/, and those settings pages, are accessed through http, and you know, it's not encrypted at all.
+As most routers, the router settings page is at http://192.168.1.1/, and those settings pages, are accessed through http, and you know, it's not encrypted at all!
 
 Unlike classic routers, this router gives a page with fields for username and password:
 
@@ -94,8 +94,9 @@ function PCSubWin()
 
 It's just a simple plaintext cookie 🍪 with the username and password base64 encoded (because of UTF-8 characters support).
 
-That should be simple, I only have to sniff the wifi packet containing the cookie,
-But it turned out it's not that simple, but still easy, I need to capture the connection handshake so I could decrypt the wifi frames.
+That should be simple, I only have to sniff the wifi packet containing the cookie.
+
+But no, it turned out it's not that simple, but still easy, I need to capture the connection handshake so I could decrypt the wifi "frames" (the wifi data being sent in air).
 
 ## Sniffing the authorization cookie
 
@@ -132,7 +133,7 @@ airmon-ng check kill
 ### 4. Enabling monitor mode
 Thankfully, my wifi adapted, which is `TP-Link TL-WN722N_V1`, supports monitor mode and packets injection.
 
-I would need the monitor mode inorder to capture all the wifi _"frames"_ flying around, which contain the cookie we want. It could by enabled with `airmon-ng`:
+I would need the monitor mode inorder to capture all the wifi _"frames"_ flying around, which contain the cookie we want. It could be enabled with `airmon-ng`:
 
 ```
 airmon-ng wlan0 11
@@ -145,7 +146,7 @@ airmon-ng wlan0 11
 Otherwise the adapter would ignore any packets not belonging to it.
 
 ### 4. Start the capturing proccess, and find my dad's mobile MAC address
-I've mounted the usb stick, and created a folder named `captures`, to store the the wifi frames.
+I've mounted the usb stick, and created a folder named `captures`, to store the the captured wifi frames.
 
 Openned a terminal in that folder, and executed the following command to start the capturing proccess:
 ```
@@ -154,13 +155,13 @@ airodump-ng mon0 -c 11 --bssid C0:4A:00:XX:XX:XX -w HAC05
 
 ![04-device-found.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/04-device-found.png)
 
-That will capture all the wifi frames recieved by my adapter, and store them into a `.cap` file,
-It would also display the list of connected clients, as you see, I've highlighted the target device (my dad's phone).
+That will capture all the wifi frames received by my adapter, and store them into a `.cap` file,
+It would also display the list of connected clients, as you see, I've highlighted the target device in my case (my dad's phone).
 
 ### 5. Deauthunticate the target device
 Inorder to successfully decrypt the wifi frames into packets, I have to know the wifi password, and to capture the 4 steps handshake.
 
-The device is already connected, so I have to deauthunticate it first (so it handshakes again), inorder to do that, I openned another terminal and executing the following:
+The device is already connected, so I have to deauthunticate it first (so it handshakes again), inorder to do that, I openned another terminal and executed the following:
 ```
 aireplay-ng --deauth 10 -a C0:4A:00:XX:XX:XX -c 50:9E:A7:XX:XX:XX mon0
 ```
@@ -504,11 +505,11 @@ Now take that base64 encoded string and decode it
 aGVsbG86ZGVhciByZWFkZXIgIQ== -> hello:dear reader !
 ```
 
-> Sure this is fake login cookie, I wount share my router login 😛
+> Sure this is fake login cookie, I won't share my router login with public 😛
 
 ## Exploring the system
 
-And now I could login and check the bandwidth control which my dad claims to no exist
+And now I could login and check the bandwidth control which my dad claims to not exist:
 
 ![15-bandwidth-control.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/15-bandwidth-control.png)
 
@@ -538,8 +539,10 @@ It took me a whole day to write this, please share me your thoughts at [my twitt
 
 And feel free to support this content by donating to my FOSS project, [LIKO-12](https://ramilego4game.itch.io/liko12) 🧡
 
+------
+
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It&#39;s been 2 years since the last blog post...<br>So it&#39;s time for a new one !<br><br>I&#39;ve been doing some hacking recently... 🕵️‍♀️<br>And here you could find out how I hacked my home&#39;s router settings page: <a href="https://t.co/bVcfmlAXn6">https://t.co/bVcfmlAXn6</a><a href="https://twitter.com/hashtag/wifislax?src=hash&amp;ref_src=twsrc%5Etfw">#wifislax</a> <a href="https://twitter.com/hashtag/Hacking?src=hash&amp;ref_src=twsrc%5Etfw">#Hacking</a> <a href="https://twitter.com/hashtag/wireshark?src=hash&amp;ref_src=twsrc%5Etfw">#wireshark</a></p>&mdash; RamiLego4Game (@ramilego4game) <a href="https://twitter.com/ramilego4game/status/1159564546316673025?ref_src=twsrc%5Etfw">August 8, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
----
+------
 
 P.S: Dad, if you are reading this, please don't block me out 😰
