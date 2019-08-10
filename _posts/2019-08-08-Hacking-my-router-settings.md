@@ -240,7 +240,7 @@ aGVsbG86ZGVhciByZWFkZXIgIQ== -> hello:dear reader !
 
 ## Exploring the system
 
-And now I could login and check the bandwidth control which my dad claims to no exist
+And now I could login and check the bandwidth control which my dad claims to not exist
 
 ![15-bandwidth-control.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/15-bandwidth-control.png)
 
