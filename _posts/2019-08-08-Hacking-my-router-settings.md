@@ -236,7 +236,7 @@ Now take that base64 encoded string and decode it
 aGVsbG86ZGVhciByZWFkZXIgIQ== -> hello:dear reader !
 ```
 
-> Sure this is fake login cookie, I wount share my router login 😛
+> Sure this is fake login cookie, I wount share you my router login 😛
 
 ## Exploring the system
 
