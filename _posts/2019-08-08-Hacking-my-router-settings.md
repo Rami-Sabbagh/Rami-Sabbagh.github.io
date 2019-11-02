@@ -131,7 +131,7 @@ airmon-ng check kill
 ![02-kill-manager.png]({{ site.url }}/images/posts/2019-08-08-Hacking-my-router-settings/02-kill-manager.png)
 
 ### 4. Enabling monitor mode
-Thankfully, my wifi adapted, which is `TP-Link TL-WN722N_V1`, supports monitor mode and packets injection.
+Thankfully, my wifi adapter, which is `TP-Link TL-WN722N_V1`, supports monitor mode and packets injection.
 
 I would need the monitor mode inorder to capture all the wifi _"frames"_ flying around, which contain the cookie we want. It could be enabled with `airmon-ng`:
 
