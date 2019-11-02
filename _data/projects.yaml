@@ -3,27 +3,26 @@
   image: https://github.com/LIKO-12/Extras/raw/master/Screenshots/screenshot_3.png
   completed: true
 
-- title: TPTMicroLua
-  url: https://github.com/RamiLego4Game/TPTMicroLua
-  image: https://github.com/RamiLego4Game/TPTMicroLua/raw/master/OfficialSaveScreenshot.png
-  completed: true
-
 - title: Whiskers
   url: https://github.com/RamiLego4Game/Whiskers
   image: https://raw.githubusercontent.com/RamiLego4Game/Whiskers/master/Screenshot_01.png
   completed: false
-
-- title: BatteryMan
-  url: https://ldjam.com/events/ludum-dare/39/batteryman
-  image: https://img.itch.zone/aW1hZ2UvMTY0MzM2Lzc1OTQ3Ny5wbmc=/original/awHQr7.png
-  completed: true
 
 - title: Lua ANSI Snake
   url: https://github.com/RamiLego4Game/Lua-ANSI-Snake
   image: https://raw.githubusercontent.com/RamiLego4Game/Lua-ANSI-Snake/master/Media/Screenshot_03.png
   completed: true
 
+- title: TPTMicroLua
+  url: https://github.com/RamiLego4Game/TPTMicroLua
+  image: https://github.com/RamiLego4Game/TPTMicroLua/raw/master/OfficialSaveScreenshot.png
+  completed: true
+
 - title: BatteryMan (LD 39)
+  url: https://ldjam.com/events/ludum-dare/39/batteryman
+  image: https://img.itch.zone/aW1hZ2UvMTY0MzM2Lzc1OTQ3Ny5wbmc=/original/awHQr7.png
+  completed: true
+
 - title: Texture-Unpacker
   url: https://github.com/RamiLego4Game/Texture-Unpacker
   image: https://github.com/RamiLego4Game/Texture-Unpacker/raw/master/Screenshot.png
