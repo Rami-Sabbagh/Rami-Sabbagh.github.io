@@ -3,5 +3,5 @@ layout: home
 ---
 # About Me
 
-Hey, I'm Rami, A young syrian programmer who works on projects using Lua and LÖVE framework (been doing that for 6 years already).
-Currently working on a neat fantasy computer called LIKO-12.
+Hey, I'm Rami, a 19 years old Syrian programmer who has been programming for 7 years.
+Currently studying Information Technology Engineering in Damascus University
