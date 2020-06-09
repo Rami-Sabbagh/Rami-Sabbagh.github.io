@@ -259,9 +259,6 @@ I hope my dad forgives me for doing that, I'm disabling the bandwidth control wh
 
 And it would be good for both of us, not harming him, and not harming me.
 
-## Coming next:
-In the the next blog post I'll explain my solution for quickly enabling and disabling the bandwidth control with a single press, so my father won't detect me 😉
-
 ---
 
 Thanks for reading !
