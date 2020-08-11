@@ -4,18 +4,18 @@
   completed: true
 
 - title: Whiskers
-  url: https://github.com/RamiLego4Game/Whiskers
-  image: https://raw.githubusercontent.com/RamiLego4Game/Whiskers/master/Screenshot_01.png
+  url: https://github.com/Rami-Sabbagh/Whiskers
+  image: https://raw.githubusercontent.com/Rami-Sabbagh/Whiskers/master/Screenshot_01.png
   completed: false
 
 - title: Lua ANSI Snake
-  url: https://github.com/RamiLego4Game/Lua-ANSI-Snake
-  image: https://raw.githubusercontent.com/RamiLego4Game/Lua-ANSI-Snake/master/Media/Screenshot_03.png
+  url: https://github.com/Rami-Sabbagh/Lua-ANSI-Snake
+  image: https://raw.githubusercontent.com/Rami-Sabbagh/Lua-ANSI-Snake/master/Media/Screenshot_03.png
   completed: true
 
 - title: TPTMicroLua
-  url: https://github.com/RamiLego4Game/TPTMicroLua
-  image: https://github.com/RamiLego4Game/TPTMicroLua/raw/master/OfficialSaveScreenshot.png
+  url: https://github.com/Rami-Sabbagh/TPTMicroLua
+  image: https://github.com/Rami-Sabbagh/TPTMicroLua/raw/master/OfficialSaveScreenshot.png
   completed: true
 
 - title: BatteryMan (LD 39)
@@ -24,8 +24,8 @@
   completed: true
 
 - title: Texture-Unpacker
-  url: https://github.com/RamiLego4Game/Texture-Unpacker
-  image: https://github.com/RamiLego4Game/Texture-Unpacker/raw/master/Screenshot.png
+  url: https://github.com/Rami-Sabbagh/Texture-Unpacker
+  image: https://github.com/Rami-Sabbagh/Texture-Unpacker/raw/master/Screenshot.png
   completed: true
 
 - title: PixelizerBox
@@ -34,6 +34,6 @@
   completed: true
 
 - title: BombWar-MiniGame
-  url: https://github.com/RamiLego4Game/BombWar-MiniGame
-  image: https://github.com/RamiLego4Game/BombWar-MiniGame/raw/master/BombWar-MiniGame.png
+  url: https://github.com/Rami-Sabbagh/BombWar-MiniGame
+  image: https://github.com/Rami-Sabbagh/BombWar-MiniGame/raw/master/BombWar-MiniGame.png
   completed: true
