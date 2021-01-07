@@ -280,20 +280,24 @@ td:last-child {
 
 // code
 pre {
-    overflow-x: auto; // add scrollbars to wide code blocks
-    padding: 1rem;
-    line-height: 1.5;
-    margin: 0;
-  }
+  overflow-x: auto; // add scrollbars to wide code blocks
+  padding: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
 
-  p > code,
-  a > code,
-  li > code,
-  figcaption > code,
-  td > code {
-    padding: 0.1rem 0.2rem;
-    font-size: 0.9em;
-    border-radius: 2px;
-    background-color: darken($white, 5%);
-    font-family: $base-font;
-  }
+p > code,
+a > code,
+li > code,
+figcaption > code,
+td > code {
+  padding: 0.1rem 0.2rem;
+  font-size: 0.9em;
+  border-radius: 2px;
+  background-color: darken($white, 5%);
+  font-family: $base-font;
+}
+
+ul {
+  padding: 0px;
+}
