@@ -330,10 +330,12 @@ canvas {
     font-size: 1em;
     margin-top: 30px;
     overflow: hidden;
+    padding: 0px;
     li {
       display: inline-block;
       background: #585b63;
       margin-right: 10px;
+      margin-bottom: 10px;
       vertical-align: middle;
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
